@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 
 # 서버 앱 생성
 app = Flask(__name__)
@@ -18,6 +18,11 @@ def about():
 def framework():
     return render_template("framework.html")
 
+@app.route('/form')
+def form():
+    res = request.args.get('keyword') #args : arguments 입력인자. 매개변수를 입력할 때 사용하는 말
+    print(res) #args : arguments 입력인자. 매개변수를 입력할 때 사용하는 말
+    return render_template("form.html")
 
 # 앱 실행
 if __name__ == "__main__":
