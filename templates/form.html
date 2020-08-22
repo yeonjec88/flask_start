@@ -10,12 +10,16 @@
 
     <!-- GET : 조회용, DB에 영향을 안줌. POST : 저장용, 처리용, DB에 영향을 줄 수 있음 -->
     <form action="/form" method="POST">
-        <span>입력 키워드</span>
-        <input name="num1" type="text" placeholder="키워드를 입력하세요.">
-        <input name="num2" type="text" placeholder="키워드를 입력하세요.">
+        <span>두 수의 합</span>
+        <input name="num1" type="number" value="0">
+        <input name="num2" type="number" value="0">
 
         <!-- https://www.w3schools.com/tags/tag_input.asp -->
         <button type="submit">전송</button>
     </form>
+
+    {% if data %}
+    <h3>결과: {{data.num1}} + {{data.num2}} = {{data.total}}</h3>
+    {% endif %}
 </body>
 </html>

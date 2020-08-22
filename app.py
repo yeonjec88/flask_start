@@ -25,10 +25,12 @@ def form():
     elif request.method == "POST":#POST방식 요청일 땐
         num1 = request.form.get('num1')
         num2 = request.form.get('num2')
+
         if num1 and num2:
             total = float(num1) + float(num2)
             print(total)
-        return render_template("form.html")
+            data = {'num1': num1,'num2': num2, 'total': total}
+            return render_template("form.html", data=data)
 
 # 앱 실행
 if __name__ == "__main__":
