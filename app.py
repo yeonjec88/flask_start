@@ -32,6 +32,13 @@ def form():
             data = {'num1': num1,'num2': num2, 'total': total}
             return render_template("form.html", data=data)
 
+@app.route('/welcome', methods=('GET','POST'))
+def welcome():
+    if request.method == "POST":
+        user_name = request.form.get('username')
+        return render_template('welcome.html', data=user_name)
+    return render_template('welcome.html')
+
 # 앱 실행
 if __name__ == "__main__":
     app.run(debug=True) # 서버 가동
